@@ -1,0 +1,231 @@
+* {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #fff;
+      color: #111;
+    }
+
+    .container {
+      min-height: 100vh;
+      display: flex;
+    }
+
+    /* LEFT SIDE */
+    .left {
+      width: 57%;
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      overflow: hidden;
+    }
+
+    .left-content {
+      width: 720px;
+      position: relative;
+    }
+
+    .logo {
+      width: 65px;
+      height: 65px;
+      border-radius: 50%;
+      background: #0866ff;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      font-weight: bold;
+      margin-bottom: 70px;
+    }
+
+    .headline {
+      font-size: 68px;
+      line-height: 1.04;
+      font-weight: 700;
+      letter-spacing: -3px;
+      max-width: 400px;
+    }
+
+    .headline span {
+      color: #0866ff;
+    }
+
+    /* Decorative cards */
+    .cards {
+      position: absolute;
+      right: 10px;
+      top: 90px;
+      width: 430px;
+      height: 550px;
+    }
+
+    .card {
+      position: absolute;
+      border-radius: 20px;
+      box-shadow: 0 5px 20px rgba(0,0,0,.12);
+      overflow: hidden;
+    }
+
+    .card1 {
+      width: 250px;
+      height: 330px;
+      right: 40px;
+      top: 0;
+      background: linear-gradient(135deg, #89b5d8, #517ca5);
+    }
+
+    .card2 {
+      width: 240px;
+      height: 300px;
+      left: 20px;
+      top: 100px;
+      background: #eee;
+      transform: rotate(-1deg);
+    }
+
+    .card3 {
+      width: 190px;
+      height: 240px;
+      left: 80px;
+      bottom: 0;
+      background: linear-gradient(135deg, #f5d36b, #ef5365);
+      z-index: 3;
+    }
+
+    .circle {
+      position: absolute;
+      right: 10px;
+      bottom: 45px;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: #55b85a;
+      border: 6px solid white;
+      z-index: 5;
+    }
+
+    /* RIGHT SIDE */
+    .right {
+      width: 43%;
+      min-height: 100vh;
+      border-left: 1px solid #ddd;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+    }
+
+    .login-box {
+      width: 590px;
+      max-width: 100%;
+    }
+
+    .login-box h2 {
+      text-align: center;
+      font-size: 22px;
+      margin-bottom: 30px;
+    }
+
+    .input {
+      width: 100%;
+      height: 68px;
+      border: 1px solid #ccc;
+      border-radius: 18px;
+      padding: 0 18px;
+      font-size: 16px;
+      outline: none;
+      margin-bottom: 12px;
+    }
+
+    .input:focus {
+      border: 2px solid #0866ff;
+      box-shadow: 0 0 0 2px rgba(8,102,255,.12);
+    }
+
+    .login-btn {
+      width: 100%;
+      height: 55px;
+      border: none;
+      border-radius: 28px;
+      background: #0866ff;
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 12px;
+    }
+
+    .login-btn:hover {
+      background: #0758d8;
+    }
+
+    .forgot {
+      display: block;
+      text-align: center;
+      margin: 25px 0 70px;
+      color: #111;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .create-btn {
+      width: 100%;
+      height: 48px;
+      border: 1px solid #0866ff;
+      border-radius: 25px;
+      background: white;
+      color: #0866ff;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .demo-note {
+      text-align: center;
+      margin-top: 20px;
+      color: #777;
+      font-size: 13px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .left,
+      .right {
+        width: 100%;
+        min-height: auto;
+      }
+
+      .left {
+        padding: 50px 25px;
+      }
+
+      .cards {
+        display: none;
+      }
+
+      .logo {
+        margin-bottom: 30px;
+      }
+
+      .headline {
+        font-size: 48px;
+      }
+
+      .right {
+        border-left: none;
+        border-top: 1px solid #ddd;
+        padding: 40px 25px;
+      }
+    }

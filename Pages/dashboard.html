@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Facebook Dashboard</title>
+
+    <link rel="stylesheet" href="/Pages/dashboard.html">
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f2f5;
+            color: #111;
+        }
+
+        /* TOP NAVBAR */
+
+        .navbar {
+            height: 70px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 25px;
+            border-bottom: 1px solid #ddd;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo {
+            width: 48px;
+            height: 48px;
+            background: #1877f2;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 38px;
+            font-weight: bold;
+        }
+
+        .search {
+            width: 240px;
+            height: 45px;
+            border: none;
+            outline: none;
+            background: #f0f2f5;
+            border-radius: 25px;
+            padding: 0 20px;
+            font-size: 16px;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 65px;
+            font-size: 27px;
+        }
+
+        .profile {
+            font-size: 30px;
+        }
+
+        /* MAIN */
+
+        .main {
+            display: grid;
+            grid-template-columns: 260px 1fr 280px;
+            gap: 25px;
+            padding: 20px;
+        }
+
+        /* LEFT SIDEBAR */
+
+        .sidebar {
+            background: #f0f2f5;
+        }
+
+        .menu {
+            list-style: none;
+        }
+
+        .menu li {
+            padding: 15px 10px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        .menu li:hover {
+            background: #ddd;
+        }
+
+        .menu span {
+            margin-right: 15px;
+            font-size: 22px;
+        }
+
+        /* CENTER */
+
+        .center {
+            max-width: 750px;
+            width: 100%;
+            margin: auto;
+        }
+
+        /* POST BOX */
+
+        .post-box {
+            background: white;
+            padding: 15px;
+            border-radius: 15px;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .avatar {
+            width: 45px;
+            height: 45px;
+            background: #111;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .post-input {
+            flex: 1;
+            height: 45px;
+            border: none;
+            background: #f0f2f5;
+            border-radius: 25px;
+            padding: 0 20px;
+            font-size: 16px;
+        }
+
+        .post-icons {
+            display: flex;
+            gap: 15px;
+            font-size: 25px;
+        }
+
+        /* STORIES */
+
+        .stories {
+            margin-top: 20px;
+            display: flex;
+            gap: 12px;
+            overflow: hidden;
+        }
+
+        .story {
+            width: 140px;
+            height: 220px;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            background: linear-gradient(
+                135deg,
+                #222,
+                #555,
+                #111
+            );
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .story:first-child {
+            background: white;
+            color: #111;
+            border: 1px solid #ddd;
+        }
+
+        .story-image {
+            height: 165px;
+            background: linear-gradient(
+                135deg,
+                #1954a5,
+                #9bc8ff
+            );
+        }
+
+        .story-name {
+            position: absolute;
+            bottom: 15px;
+            left: 10px;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .plus {
+            position: absolute;
+            top: 145px;
+            left: 52px;
+            width: 48px;
+            height: 48px;
+            background: #1877f2;
+            color: white;
+            border: 4px solid white;
+            border-radius: 50%;
+            font-size: 35px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* POST */
+
+        .post {
+            background: white;
+            margin-top: 25px;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .post-header {
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .post-user {
+            font-weight: bold;
+        }
+
+        .post-time {
+            color: #777;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        .post-image {
+            height: 550px;
+            background: linear-gradient(
+                135deg,
+                #03183c,
+                #4c8eea,
+                #111e44
+            );
+        }
+
+        /* RIGHT SIDEBAR */
+
+        .right-sidebar {
+            padding: 10px;
+        }
+
+        .contacts-title {
+            color: #777;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .contact {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .contact-img {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(
+                135deg,
+                #8c42db,
+                #f4a
+            );
+            border-radius: 50%;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 1000px) {
+
+            .main {
+                grid-template-columns: 220px 1fr;
+            }
+
+            .right-sidebar {
+                display: none;
+            }
+
+            .nav-icons {
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 700px) {
+
+            .main {
+                display: block;
+            }
+
+            .sidebar {
+                display: none;
+            }
+
+            .search {
+                width: 150px;
+            }
+
+            .nav-icons {
+                display: none;
+            }
+
+            .center {
+                width: 100%;
+            }
+        }
+    
+    </style>
+
+    
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo-area">
+
+            <div class="logo">f</div>
+
+            <input
+                class="search"
+                type="text"
+                placeholder="Search Facebook"
+            >
+
+        </div>
+
+        <div class="nav-icons">
+            <span>⌂</span>
+            <span>▣</span>
+            <span>▥</span>
+            <span>▰</span>
+            <span>👥</span>
+        </div>
+
+        <div class="profile">
+            👤
+        </div>
+
+    </nav>
+
+
+    <!-- MAIN -->
+
+    <div class="main">
+
+
+        <!-- LEFT SIDEBAR -->
+
+        <aside class="sidebar">
+
+            <ul class="menu">
+
+                <li>
+                    <span>👤</span>
+                    User 4471
+                </li>
+
+                <li>
+                    <span>🟣</span>
+                    Meta Ai
+                </li>
+
+                <li>
+                    <span>👥</span>
+                    Friends
+                </li>
+
+                <li>
+                    <span>📈</span>
+                    Dashboard
+                </li>
+
+                <li>
+                    <span>↶</span>
+                    Memories
+                </li>
+
+                <li>
+                    <span>🔖</span>
+                    Saved
+                </li>
+
+                <li>
+                    <span>👥</span>
+                    Groups
+                </li>
+
+                <li>
+                    <span>🎬</span>
+                    Reels
+                </li>
+
+                <li>
+                    <span>🛍</span>
+                    Marketplace
+                </li>
+
+                <li>
+                    <span>📰</span>
+                    Feeds
+                </li>
+
+                <li>
+                    <span>💬</span>
+                    Messenger
+                </li>
+
+                <li>
+                    <span>⌄</span>
+                    See more
+                </li>
+
+            </ul>
+
+        </aside>
+
+
+        <!-- CENTER -->
+
+        <main class="center">
+
+            <!-- CREATE POST -->
+
+            <div class="post-box">
+
+                <div class="avatar">
+                    👤
+                </div>
+
+                <input
+                    class="post-input"
+                    type="text"
+                    placeholder="What's on your mind, User ?"
+                >
+
+                <div class="post-icons">
+                    <span>▣</span>
+                    <span>🖼</span>
+                    <span>🎬</span>
+                </div>
+
+            </div>
+
+
+            <!-- STORIES -->
+
+            <div class="stories">
+
+                <div class="story">
+
+                    <div class="story-image"></div>
+
+                    <div class="plus">+</div>
+
+                    <div class="story-name">
+                        Create Story
+                    </div>
+
+                </div>
+
+
+                <div class="story">
+
+                    <div class="story-image"></div>
+
+                    <div class="story-name">
+                        m.imran
+                    </div>
+
+                </div>
+
+
+                <div class="story">
+
+                    <div class="story-image"></div>
+
+                    <div class="story-name">
+                        shayan 2584
+                    </div>
+
+                </div>
+
+
+                <div class="story">
+
+                    <div class="story-image"></div>
+
+                    <div class="story-name">
+                        sameer 3265
+                    </div>
+
+                </div>
+
+
+                <div class="story">
+
+                    <div class="story-image"></div>
+
+                    <div class="story-name">
+                        mukhtiyar
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- POST -->
+
+            <article class="post">
+
+                <div class="post-header">
+
+                    <div class="avatar">
+                        👤
+                    </div>
+
+                    <div>
+
+                        <div class="post-user">
+                            m.imran - Software Developer
+                        </div>
+
+                        <div class="post-time">
+                            2 days ago · 🌐
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="post-image"></div>
+
+            </article>
+
+        </main>
+
+
+        <!-- RIGHT SIDEBAR -->
+
+        <aside class="right-sidebar">
+
+            <h3 class="contacts-title">
+                Contacts
+            </h3>
+
+            <div class="contact">
+                <div class="contact-img"></div>
+                Meta Ai
+            </div>
+
+            <div class="contact">
+                <div class="contact-img"></div>
+                Ali khan
+            </div>
+
+            <div class="contact">
+                <div class="contact-img"></div>
+                nadeem sarwar
+            </div>
+
+            <div class="contact">
+                ⌄ &nbsp; See more
+            </div>
+
+        </aside>
+
+    </div>
+
+</body>
+</html>

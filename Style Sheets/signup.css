@@ -1,0 +1,246 @@
+
+  
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: #fff;
+      color: #1c1e21;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .signup-container {
+      width: 600px;
+      padding: 48px 0 60px;
+    }
+
+    /* Back Arrow */
+    .back {
+      font-size: 38px;
+      color: #65676b;
+      margin-bottom: 28px;
+      cursor: pointer;
+      width: 30px;
+      line-height: 1;
+    }
+
+    /* Meta Logo */
+    .meta-logo {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+
+    .meta-symbol {
+      font-size: 25px;
+      font-weight: bold;
+      color: #0866ff;
+    }
+
+    .meta-text {
+      font-size: 18px;
+      font-weight: 600;
+      color: #4b4f56;
+    }
+
+    h1 {
+      font-size: 28px;
+      line-height: 34px;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .description {
+      font-size: 16px;
+      line-height: 22px;
+      color: #65676b;
+      max-width: 570px;
+      margin-bottom: 24px;
+    }
+
+    /* Labels */
+    label {
+      display: block;
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    /* Name */
+    .name-fields {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    input,
+    select {
+      width: 100%;
+      height: 64px;
+      border: 1px solid #ccd0d5;
+      border-radius: 16px;
+      background: #fff;
+      padding: 0 16px;
+      font-size: 16px;
+      color: #1c1e21;
+      outline: none;
+    }
+
+    input::placeholder {
+      color: #65676b;
+    }
+
+    input:focus,
+    select:focus {
+      border-color: #0866ff;
+      box-shadow: 0 0 0 1px #0866ff;
+    }
+
+    /* Date of birth */
+    .dob-section {
+      margin-bottom: 24px;
+    }
+
+    .dob-label {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .question {
+      width: 20px;
+      height: 20px;
+      border: 2px solid #65676b;
+      border-radius: 50%;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #65676b;
+    }
+
+    .dob-fields {
+      display: flex;
+      gap: 16px;
+    }
+
+    select {
+      appearance: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+
+      background-image:
+        linear-gradient(45deg, transparent 50%, #111 50%),
+        linear-gradient(135deg, #111 50%, transparent 50%);
+      background-position:
+        calc(100% - 25px) 27px,
+        calc(100% - 19px) 27px;
+      background-size: 7px 7px, 7px 7px;
+      background-repeat: no-repeat;
+    }
+
+    /* Gender */
+    .gender-section {
+      margin-bottom: 24px;
+    }
+
+    .gender-label {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .gender-select {
+      height: 64px;
+    }
+
+    /* Contact */
+    .contact-section {
+      margin-bottom: 22px;
+    }
+
+    .contact-input {
+      border-color: #ccd0d5;
+    }
+
+    .contact-input.error {
+      border: 1px solid #fa383e;
+    }
+
+    .help-text {
+      color: #65676b;
+      font-size: 16px;
+      line-height: 22px;
+      margin-top: 10px;
+    }
+
+    .help-text a {
+      color: #0866ff;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .help-text a:hover {
+      text-decoration: underline;
+    }
+
+    /* Password */
+    .password-section {
+      margin-bottom: 25px;
+    }
+
+    /* Button */
+    .signup-btn {
+      width: 100%;
+      height: 54px;
+      border: none;
+      border-radius: 8px;
+      background: #0866ff;
+      color: white;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .signup-btn:hover {
+      background: #0757d9;
+    }
+
+    /* Mobile */
+    @media (max-width: 650px) {
+      .signup-container {
+        width: 100%;
+        padding: 30px 20px;
+      }
+
+      .name-fields,
+      .dob-fields {
+        flex-direction: column;
+      }
+
+      h1 {
+        font-size: 25px;
+      }
+
+      .description {
+        font-size: 15px;
+      }
+
+      input,
+      select {
+        height: 58px;
+      }
+    }
+  
